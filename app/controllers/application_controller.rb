@@ -4,5 +4,4 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper Plotline::ApplicationHelper
-  helper ThumborRails::Helpers
 end

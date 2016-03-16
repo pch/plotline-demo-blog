@@ -15,7 +15,7 @@ mkdir media posts pages drafts
 echo "---\ntitle: Hello world\ntype: post\n---\n\nThis is my first blog post\n" > posts/"$(date +'%Y-%m-%d')"-hello-world.md
 ```
 
-In order to run the app, you'll need: postgres, python and homebrew (mac). Once you have that, the following script will install all the other required packages: fswatch/inotify-tools for monitoring changes in content files and [thumbor](http://thumbor.org) for an awesome thumbnailing server.
+In order to run the app, you'll need: postgres, python and homebrew (mac). Once you have that, the following script will install fswatch/inotify-tools required for monitoring changes in the content directory.
 
 ```shell
 git clone git@github.com:pch/plotline-demo-blog.git

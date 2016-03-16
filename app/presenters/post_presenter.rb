@@ -19,4 +19,9 @@ class PostPresenter < Plotline::EntryPresenter
       concat content_tag(:figcaption, alt)
     end
   end
+
+  def thumbnail_url(src, attrs)
+    # TODO: introduce thumbnailing service
+    src
+  end
 end
