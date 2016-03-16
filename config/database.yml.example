@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: blog_development
+
+  # The specified database role being used to connect to postgres.
+  # To create additional roles in postgres see `$ createuser --help`.
+  # When left blank, postgres will use the default role. This is
+  # the same name as the operating system user that initialized the database.
+  #username: blog
+  # The password associated with the postgres role (username).
+  #password:
+  #host: localhost
+
+test:
+  <<: *default
+  database: blog_test

@@ -1,0 +1,14 @@
+<% title "Photos" %>
+
+<div class="wrapper">
+  <section>
+    <div class="listing">
+      <% @photostories.each do |photostory| %>
+        <article class="post clearfix">
+          <h2><a href="/photos/<%= photostory.slug %>"><%= photostory.title %></a></h2>
+          <p class="date"><%= photostory.published_at %></p>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</div>

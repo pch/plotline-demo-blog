@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header id="top" class="clearfix">
+    <h1><a href="/">My Blog</a></h1>
+
+    <nav id="main-nav">
+      <ul class="nav">
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/photos">Photos</a></li>
+        <li><a href="/about">About</a></li>
+        <li>
+          <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag 'q', '', placeholder: 'Search' %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-wrapper">
+    <%= yield %>
+    <%= render partial: 'shared/photoswipe' %>
+  </div>
+</body>
+</html>

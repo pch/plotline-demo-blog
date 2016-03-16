@@ -1,0 +1,9 @@
+<% title @page.title %>
+
+<% present @page do |page| %>
+  <section class="post">
+    <div class="post-body">
+      <%= page.body_markdown %>
+    </div>
+  </section>
+<% end %>

@@ -1,0 +1,14 @@
+<% title "Posts" %>
+
+<div class="wrapper">
+  <section>
+    <div class="listing">
+      <% @posts.each do |post| %>
+        <article class="post clearfix">
+          <h2><a href="/posts/<%= post.slug %>"><%= post.title %></a></h2>
+          <p class="date"><%= post.published_at.to_date %></p>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</div>

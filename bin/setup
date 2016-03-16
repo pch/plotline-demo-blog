@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require 'securerandom'
+
+# path to your application root.
+APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+
+Dir.chdir APP_ROOT do
+  puts "== Installing dependencies =="
+
+  # Thumbor
+  system "which thumbor || pip install thumbor"
+
+  if RUBY_PLATFORM =~ /darwin/
+    system "which fswatch || brew install fswatch"
+  else
+    system "sudo apt-get install inotify-tools"
+  end
+
+  system "gem install bundler --conservative"
+  system "bundle check || bundle install"
+
+  puts "\n== Database configuration =="
+  unless File.exist?("config/database.yml")
+    system "cp config/database.yml.example config/database.yml"
+  end
+
+  unless File.exist?(".env")
+    puts "Where will you store your content? (e.g. /Users/johndoe/Dropbox/blog)"
+    content_path = gets.strip
+    security_key = SecureRandom.hex(20)
+
+    system "echo 'export CONTENT_SOURCE_DIR=#{content_path}' >> .env"
+    system "echo 'export APP_DIR=\"$(pwd)\"' >> .env"
+    system "echo 'export THUMBOR_URL=\"http://localhost:8888\"' >> .env"
+    system "echo 'export THUMBOR_SECURITY_KEY=#{security_key}' >> .env"
+    system "sed -e \"s/BLOG_SECURE_KEY/#{security_key}/g\" config/thumbor.conf.example >> config/thumbor.conf"
+  end
+
+  puts "\n== Preparing database =="
+  system "bin/rake db:setup"
+
+  puts "\n== Removing old logs and tempfiles =="
+  system "rm -f log/*"
+  system "rm -rf tmp/cache"
+
+  puts "\n== Restarting application server =="
+  system "touch tmp/restart.txt"
+
+  puts "\n== All done. Run 'foreman start'. =="
+end

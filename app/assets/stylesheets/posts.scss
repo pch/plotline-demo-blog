@@ -1,0 +1,193 @@
+/*  =Post
+======================================================================= */
+
+.post {
+  margin-bottom: 40px;
+}
+
+.post h1 {
+  font-size: 2em;
+  font-weight: 500;
+  //line-height: 1.5em;
+  margin: 0;
+  margin-bottom: 0.2em;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 40.4rem;
+}
+
+.post h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 40.4rem;
+}
+
+.post p, .post pre {
+  width: 40.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-body h2 {
+  margin-top: 3em;
+}
+
+.post ol h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.post ul {
+  width: 40.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post h3 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 2em;
+  width: 40.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post h3 + p {
+  margin-top: 0;
+}
+
+.post .date {
+  font-size: 0.7em;
+  color: #666;
+}
+
+div.post-body {
+
+}
+
+.highlight {
+  margin-bottom: 1em;
+  overflow: scroll;
+  font-size: 0.8em;
+  padding: 0.5em;
+  background: #f7f7f7;
+}
+
+/* Footnotes */
+.post-body .footnotes {
+  margin-top: 3em;
+  width: 40.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footnotes ol {
+  list-style-type: decimal;
+  font-size: 14px;
+  margin-left: 40px;
+  line-height: 1.7em;
+}
+
+.post-body .footnotes p {
+  width: auto;
+  margin-top: 10px;
+  display: inline;
+}
+
+.footnotes a[rev=footnote]:before {
+  content: ' ';
+}
+
+.post hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin-top: 4em;
+}
+
+blockquote {
+  max-width: 130%;
+  border: none;
+  padding: 0;
+  padding-left: 1em;
+  font-size: 1em;
+  line-height: 1.5em;
+  border-left: 4px #f1f1f1 solid;
+  font-style: italic;
+  width: 40.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure {
+  margin: 2em auto;
+  width: 40.4rem;
+}
+
+figure figcaption {
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.85em;
+  display: block;
+  margin-top: 0.5em;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
+
+.post aside {
+  font-size: 0.9em;
+  padding: 1em;
+  padding-left: 5em;
+  background: #F2F5F8;
+}
+
+.post aside h3 {
+  margin-top: 0;
+}
+
+.post aside.buy {
+
+}
+
+.photoset figure img {
+  opacity: 0;
+  transition: opacity .3s ease-in;
+}
+
+/* =Listing
+=========================================================================== */
+
+.listing {
+  margin-bottom: 100px;
+}
+
+.listing .post {
+  margin-bottom: 1.5em;
+}
+
+  .listing .post h2 {
+    float: left;
+    font-weight: 400;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+  }
+
+  .listing .post .date {
+    float: right;
+    margin: 0;
+    margin-top: 2px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.2);
+  }

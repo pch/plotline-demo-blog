@@ -1,0 +1,21 @@
+<% title @photostory.title %>
+
+<% present(@photostory, PostPresenter) do |photostory| %>
+  <section class="post">
+    <p class="date"><%= photostory.published_at %></p>
+    <h1><%= photostory.title %></h1>
+    <h3><%= photostory.place %></h3>
+    <%# if photostory.hero_photo.present? %>
+      <%#= image_tag photostory.hero_photo.first.image.url, width: 500 %></h3>
+    <%# end %>
+
+    <div>
+      Weather: <%= photostory.weather %><br/>
+      Distance walked: <%= photostory.distance %>
+    </div>
+
+    <div class="post-body">
+      <%= photostory.body_markdown %>
+    </div>
+  </section>
+<% end %>

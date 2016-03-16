@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+source .env
+
+source_dir=$CONTENT_SOURCE_DIR
+target_dir="$APP_DIR/public"
+media_dir="$source_dir/media"
+
+rsync -avv --progress $media_dir $target_dir
+rake import_entries
+rake import_images
+
+function sync {
+  echo "Changes detected: $changed_file"
+
+  if [[ "$changed_file" =~ "$media_dir" ]]
+  then
+      rsync -avv --progress $media_dir $target_dir
+      rake import_images
+  else
+      rake import_entries FILE=$changed_file
+  fi
+}
+
+echo
+echo
+echo "Waiting for changes..."
+echo
+echo
+
+if [ "`which inotifywait`" != "" ] ; then
+  inotifywait -m -r -q --format '%w' $source_dir | while read changed_file
+  do
+    sync
+  done
+else
+  # Mac OS X - use fswatch
+  fswatch -0 $source_dir | while read -d "" changed_file
+  do
+    sync
+  done
+fi

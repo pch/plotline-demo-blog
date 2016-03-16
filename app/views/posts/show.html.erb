@@ -1,0 +1,17 @@
+<% title @post.title %>
+
+<% present @post do |post| %>
+  <section class="post">
+    <p class="date"><%= post.published_at || post.created_at.to_date %></p>
+    <h1><%= post.title %></h1>
+    <div class="post-body">
+      <%= post.body_markdown %>
+    </div>
+
+    <ul>
+      <% post.tags.each do |tag| %>
+        <li><%= link_to tag %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
