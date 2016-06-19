@@ -1,2 +1,2 @@
 web: rails s
-sync: bin/sync-entries
+sync: bundle exec plotline sync --source /Users/piotrek/Dropbox/pchm --trace

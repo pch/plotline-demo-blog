@@ -8,12 +8,6 @@ APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
 Dir.chdir APP_ROOT do
   puts "== Installing dependencies =="
 
-  if RUBY_PLATFORM =~ /darwin/
-    system "which fswatch || brew install fswatch"
-  else
-    system "sudo apt-get install inotify-tools"
-  end
-
   system "gem install bundler --conservative"
   system "bundle check || bundle install"
 
@@ -28,6 +22,9 @@ Dir.chdir APP_ROOT do
 
     system "echo 'export CONTENT_SOURCE_DIR=#{content_path}' >> .env"
     system "echo 'export APP_DIR=\"$(pwd)\"' >> .env"
+
+    puts "Please also see the dotenv.example file for deployment config"
+    puts " and copy the relevant values to the .env file."
   end
 
   puts "\n== Preparing database =="
