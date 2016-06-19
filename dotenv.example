@@ -1,0 +1,8 @@
+export CONTENT_SOURCE_DIR=/Users/MYUSER/Dropbox/pchm
+export APP_DIR="$(pwd)"
+
+# Deployment config:
+export DEPLOYMENT_APP_NAME=blog
+export DEPLOYMENT_APP_HOST="127.0.0.1"
+export DEPLOYMENT_DIRECTORY="/var/www/blog"
+export DEPLOYMENT_GIT_REPO="https://MYACCESSTOKEN@github.com/user/repo.git"

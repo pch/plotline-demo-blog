@@ -16,3 +16,4 @@
 /public/media
 /config/database.yml
 /config/thumbor.conf
+/public/uploads
